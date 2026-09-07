@@ -1,62 +1,71 @@
 {
-    "name": "@types/fs-extra",
-    "version": "8.1.5",
-    "description": "TypeScript definitions for fs-extra",
-    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/fs-extra",
-    "license": "MIT",
-    "contributors": [
-        {
-            "name": "Alan Agius",
-            "githubUsername": "alan-agius4",
-            "url": "https://github.com/alan-agius4"
-        },
-        {
-            "name": "midknight41",
-            "githubUsername": "midknight41",
-            "url": "https://github.com/midknight41"
-        },
-        {
-            "name": "Brendan Forster",
-            "githubUsername": "shiftkey",
-            "url": "https://github.com/shiftkey"
-        },
-        {
-            "name": "Mees van Dijk",
-            "githubUsername": "mees-",
-            "url": "https://github.com/mees-"
-        },
-        {
-            "name": "Justin Rockwood",
-            "githubUsername": "jrockwood",
-            "url": "https://github.com/jrockwood"
-        },
-        {
-            "name": "Sang Dang",
-            "githubUsername": "sangdth",
-            "url": "https://github.com/sangdth"
-        },
-        {
-            "name": "Florian Keller",
-            "githubUsername": "ffflorian",
-            "url": "https://github.com/ffflorian"
-        },
-        {
-            "name": "Piotr Błażejewicz",
-            "githubUsername": "peterblazejewicz",
-            "url": "https://github.com/peterblazejewicz"
-        }
-    ],
-    "main": "",
-    "types": "index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-        "directory": "types/fs-extra"
-    },
-    "scripts": {},
-    "dependencies": {
-        "@types/node": "*"
-    },
-    "typesPublisherContentHash": "1cc8d75d0201806b11427d94e9dc44be9a30f85f63c161c66d7bd9798d1a6386",
-    "typeScriptVersion": "4.5"
+  "name": "fs-extra",
+  "version": "11.4.0",
+  "description": "fs-extra contains methods that aren't included in the vanilla Node.js fs package. Such as recursive mkdir, copy, and remove.",
+  "engines": {
+    "node": ">=14.14"
+  },
+  "homepage": "https://github.com/jprichardson/node-fs-extra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jprichardson/node-fs-extra.git"
+  },
+  "keywords": [
+    "fs",
+    "file",
+    "file system",
+    "copy",
+    "directory",
+    "extra",
+    "mkdirp",
+    "mkdir",
+    "mkdirs",
+    "recursive",
+    "json",
+    "read",
+    "write",
+    "extra",
+    "delete",
+    "remove",
+    "touch",
+    "create",
+    "text",
+    "output",
+    "move",
+    "promise"
+  ],
+  "author": "JP Richardson <jprichardson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graceful-fs": "^4.2.0",
+    "jsonfile": "^6.0.1",
+    "universalify": "^2.0.0"
+  },
+  "devDependencies": {
+    "klaw": "^2.1.1",
+    "klaw-sync": "^3.0.2",
+    "minimist": "^1.1.1",
+    "mocha": "^10.1.0",
+    "nyc": "^15.0.0",
+    "proxyquire": "^2.0.1",
+    "read-dir-files": "^0.1.1",
+    "standard": "^17.0.0"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./esm": "./lib/esm.mjs"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/__tests__/"
+  ],
+  "scripts": {
+    "lint": "standard",
+    "test-find": "find ./lib/**/__tests__ -name *.test.js | xargs mocha",
+    "test": "npm run lint && npm run unit && npm run unit-esm",
+    "unit": "nyc node test.js",
+    "unit-esm": "node test.mjs"
+  },
+  "sideEffects": false
 }
