@@ -1,5 +1,9 @@
 /*! Capacitor: https://capacitorjs.com/ - MIT License */
-var ExceptionCode;
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+exports.ExceptionCode = void 0;
 (function (ExceptionCode) {
     /**
      * API is not implemented.
@@ -16,7 +20,7 @@ var ExceptionCode;
      *   - it requires a particular platform or browser version
      */
     ExceptionCode["Unavailable"] = "UNAVAILABLE";
-})(ExceptionCode || (ExceptionCode = {}));
+})(exports.ExceptionCode || (exports.ExceptionCode = {}));
 class CapacitorException extends Error {
     constructor(message, code, data) {
         super(message);
@@ -105,7 +109,7 @@ const createCapacitor = (win) => {
                 return (_b = impl[prop]) === null || _b === void 0 ? void 0 : _b.bind(impl);
             }
             else {
-                throw new CapacitorException(`"${pluginName}" plugin is not implemented on ${platform}`, ExceptionCode.Unimplemented);
+                throw new CapacitorException(`"${pluginName}" plugin is not implemented on ${platform}`, exports.ExceptionCode.Unimplemented);
             }
         };
         const createPluginMethodWrapper = (prop) => {
@@ -119,7 +123,7 @@ const createCapacitor = (win) => {
                         return p;
                     }
                     else {
-                        throw new CapacitorException(`"${pluginName}.${prop}()" is not implemented on ${platform}`, ExceptionCode.Unimplemented);
+                        throw new CapacitorException(`"${pluginName}.${prop}()" is not implemented on ${platform}`, exports.ExceptionCode.Unimplemented);
                     }
                 });
                 if (prop === 'addListener') {
@@ -273,10 +277,10 @@ class WebPlugin {
         };
     }
     unimplemented(msg = 'not implemented') {
-        return new Capacitor.Exception(msg, ExceptionCode.Unimplemented);
+        return new Capacitor.Exception(msg, exports.ExceptionCode.Unimplemented);
     }
     unavailable(msg = 'not available') {
-        return new Capacitor.Exception(msg, ExceptionCode.Unavailable);
+        return new Capacitor.Exception(msg, exports.ExceptionCode.Unavailable);
     }
     async removeListener(eventName, listenerFunc) {
         const listeners = this.listeners[eventName];
@@ -584,7 +588,7 @@ const CapacitorHttp = registerPlugin('CapacitorHttp', {
 /**
  * Available status bar styles.
  */
-var SystemBarsStyle;
+exports.SystemBarsStyle = void 0;
 (function (SystemBarsStyle) {
     /**
      * Light system bar content on a dark background.
@@ -606,11 +610,11 @@ var SystemBarsStyle;
      * @since 8.0.0
      */
     SystemBarsStyle["Default"] = "DEFAULT";
-})(SystemBarsStyle || (SystemBarsStyle = {}));
+})(exports.SystemBarsStyle || (exports.SystemBarsStyle = {}));
 /**
  * Available system bar types.
  */
-var SystemBarType;
+exports.SystemBarType = void 0;
 (function (SystemBarType) {
     /**
      * The top status bar on both Android and iOS.
@@ -624,7 +628,7 @@ var SystemBarType;
      * @since 8.0.0
      */
     SystemBarType["NavigationBar"] = "NavigationBar";
-})(SystemBarType || (SystemBarType = {}));
+})(exports.SystemBarType || (exports.SystemBarType = {}));
 class SystemBarsPluginWeb extends WebPlugin {
     async setStyle() {
         this.unavailable('not available for web');
@@ -644,5 +648,13 @@ const SystemBars = registerPlugin('SystemBars', {
 });
 /******** END SYSTEM BARS PLUGIN ********/
 
-export { Capacitor, CapacitorCookies, CapacitorException, CapacitorHttp, ExceptionCode, SystemBarType, SystemBars, SystemBarsStyle, WebPlugin, WebView, buildRequestInit, registerPlugin };
-//# sourceMappingURL=index.js.map
+exports.Capacitor = Capacitor;
+exports.CapacitorCookies = CapacitorCookies;
+exports.CapacitorException = CapacitorException;
+exports.CapacitorHttp = CapacitorHttp;
+exports.SystemBars = SystemBars;
+exports.WebPlugin = WebPlugin;
+exports.WebView = WebView;
+exports.buildRequestInit = buildRequestInit;
+exports.registerPlugin = registerPlugin;
+//# sourceMappingURL=index.cjs.js.map
