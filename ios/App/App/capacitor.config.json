@@ -1,0 +1,6 @@
+{
+	"appId": "com.organicstore.app",
+	"appName": "Organic Store",
+	"webDir": "dist",
+	"packageClassList": []
+}
